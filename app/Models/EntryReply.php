@@ -8,6 +8,19 @@ use Strimoid\Models\Traits\HasGroupRelationship;
 use Strimoid\Models\Traits\HasNotificationsRelationship;
 use Strimoid\Models\Traits\HasUserRelationship;
 
+/**
+ * Strimoid\Models\EntryReply
+ *
+ * @property-read Entry $parent 
+ * @property-write mixed $text 
+ * @property-read mixed $vote_state 
+ * @property-read \Illuminate\Database\Eloquent\Collection|Vote[] $vote 
+ * @property-read \Illuminate\Database\Eloquent\Collection|Save[] $usave 
+ * @property-read User $user 
+ * @property-read Group $group 
+ * @property-read \Illuminate\Database\Eloquent\Collection|Notification[] $notifications 
+ * @method static \Strimoid\Models\BaseModel fromDaysAgo($days)
+ */
 class EntryReply extends BaseModel
 {
     use HasUserRelationship, HasGroupRelationship, HasNotificationsRelationship;

@@ -15,6 +15,18 @@ use Strimoid\Models\Traits\HasAvatar;
  * @property string $avatar Group avatar filename
  * @property string $sidebar Sidebar text
  * @property DateTime $created_at
+ * @property-read User $creator 
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Strimoid\Models\Entry[] $entries 
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Strimoid\Models\Comment[] $comments 
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Strimoid\Models\Content[] $contents 
+ * @property-read \Illuminate\Database\Eloquent\Collection|User[] $bannedUsers 
+ * @property-read \Illuminate\Database\Eloquent\Collection|User[] $moderators 
+ * @property-read mixed $avatar_path 
+ * @property-read mixed $vote_state 
+ * @property-read \Illuminate\Database\Eloquent\Collection|Vote[] $vote 
+ * @property-read \Illuminate\Database\Eloquent\Collection|Save[] $usave 
+ * @method static \Strimoid\Models\Group name($name)
+ * @method static \Strimoid\Models\BaseModel fromDaysAgo($days)
  */
 class Group extends BaseModel
 {

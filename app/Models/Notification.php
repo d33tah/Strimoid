@@ -12,6 +12,14 @@ use URL;
  * @property string $type Type of notification
  * @property array $targets
  * @property DateTime $created_at
+ * @property-read User::class)->select([' $sourceUser 
+ * @property-read \ $element 
+ * @property mixed $read 
+ * @property-read mixed $vote_state 
+ * @property-read \Illuminate\Database\Eloquent\Collection|Vote[] $vote 
+ * @property-read \Illuminate\Database\Eloquent\Collection|Save[] $usave 
+ * @method static \Strimoid\Models\Notification target($param)
+ * @method static \Strimoid\Models\BaseModel fromDaysAgo($days)
  */
 class Notification extends BaseModel
 {

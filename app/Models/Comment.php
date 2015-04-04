@@ -14,6 +14,12 @@ use Strimoid\Models\Traits\HasUserRelationship;
  * @property string $text
  * @property string $text_source
  * @property User $user
+ * @property-read \Illuminate\Database\Eloquent\Collection|CommentReply[] $replies 
+ * @property-read mixed $vote_state 
+ * @property-read \Illuminate\Database\Eloquent\Collection|Vote[] $vote 
+ * @property-read \Illuminate\Database\Eloquent\Collection|Save[] $usave 
+ * @property-read Group $group 
+ * @method static \Strimoid\Models\BaseModel fromDaysAgo($days)
  */
 class Comment extends BaseModel
 {

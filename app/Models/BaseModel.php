@@ -7,6 +7,14 @@ use Eloquent;
 use Hashids;
 use Setting;
 
+/**
+ * Strimoid\Models\BaseModel
+ *
+ * @property-read mixed $vote_state 
+ * @property-read \Illuminate\Database\Eloquent\Collection|Vote[] $votes 
+ * @property-read \Illuminate\Database\Eloquent\Collection|Save[] $saves 
+ * @method static \Strimoid\Models\BaseModel fromDaysAgo($days)
+ */
 class BaseModel extends Eloquent
 {
     /**
