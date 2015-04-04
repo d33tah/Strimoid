@@ -40,12 +40,12 @@
           "vinkla/hashids": "~1.0",
           "filp/whoops": "~1.1",
           "msurguy/honeypot": "dev-master",
-          "lucadegasperi/oauth2-server-laravel": "4.0.x@dev",
-            "firebase/php-jwt": "~1.0"
+          "lucadegasperi/oauth2-server-laravel": "4.0.x@dev"
       },
       "require-dev": {
           "phpunit/phpunit": "~4.5",
           "barryvdh/laravel-ide-helper": "~2.0",
+          "doctrine/dbal": "~2.3",
           "barryvdh/laravel-debugbar": "~2.0",
           "codeception/codeception": "2.0.x-dev",
           "fzaninotto/faker": "*",
@@ -71,6 +71,7 @@
           ],
           "post-update-cmd": [
                 "php artisan clear-compiled",
+                "php artisan ide-helper:generate -M",
                 "php artisan optimize"
           ],
           "post-create-project-cmd": [

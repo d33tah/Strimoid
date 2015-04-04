@@ -3,12 +3,11 @@
 use Auth;
 use Date;
 use DateTimeZone;
+use Eloquent;
 use Hashids;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Cache;
 use Setting;
 
-abstract class BaseModel extends Model
+class BaseModel extends Eloquent
 {
     /**
      * @var array Validation rules
@@ -115,7 +114,9 @@ abstract class BaseModel extends Model
      */
     public function isSaved()
     {
-        if (Auth::guest()) return false;
+        if (Auth::guest()) {
+            return false;
+        }
 
         return (bool) $this->usave;
     }

@@ -31,6 +31,11 @@ class Notification extends BaseModel
         return $this->belongsToMany(User::class, 'notification_targets')->withPivot('read');
     }
 
+    public function element()
+    {
+        return $this->morphTo();
+    }
+
     public function setTitle($title)
     {
         $clean = preg_replace('/<span class="spoiler">(.*?)<\/span>/s', '', $title);

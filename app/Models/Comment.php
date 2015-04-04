@@ -70,7 +70,10 @@ class Comment extends BaseModel
 
     public function isHidden()
     {
-        if (Auth::guest()) return false;
+        if (Auth::guest()) {
+            return false;
+        }
+
         return Auth::user()->isBlockingUser($this->user);
     }
 

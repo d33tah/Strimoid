@@ -115,6 +115,14 @@ class CommentController extends BaseController
         return Response::json(['status' => 'ok', 'comment' => $comment]);
     }
 
+    /**
+     * Add new reply to given Comment object.
+     *
+     * @param  Request  $request
+     * @param  Comment  $parent
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function addReply(Request $request, $parent)
     {
         $this->validate($request, CommentReply::rules());
@@ -147,7 +155,7 @@ class CommentController extends BaseController
         $comment = $class::findOrFail(Input::get('id'));
 
         if (! $comment->canEdit()) {
-            App::abort(403, 'Access denied');
+            app()->abort(403, 'Access denied');
         }
 
         $this->validate($request, CommentReply::rules());

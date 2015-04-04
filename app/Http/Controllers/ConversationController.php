@@ -72,17 +72,10 @@ class ConversationController extends BaseController
                 ->delete();
         }
 
-        $message = $conversation->messages()->create([
+        $conversation->messages()->create([
             'user_id' => Auth::id(),
             'text'    => $request->input('text'),
         ]);
-
-        $this->sendNotifications([$target->getKey()], function ($notification) use ($message, $conversation) {
-            $notification->type = 'conversation';
-            $notification->setTitle($message->text);
-            $notification->conversation()->associate($conversation);
-            $notification->save(); // todo
-        });
 
         return Redirect::to('/conversations');
     }
