@@ -77,7 +77,9 @@ class VoteController extends BaseController
         $object = $this->getObject(Input::get('id'), Input::get('type'));
         $vote = $this->getVoteElement($object, Auth::user());
 
-        if (!$vote) return Response::make('Vote not found', 404);
+        if (!$vote) {
+            return Response::make('Vote not found', 404);
+        }
 
         $uv = $object->uv;
         $dv = $object->dv;
@@ -135,6 +137,11 @@ class VoteController extends BaseController
         return $vote;
     }
 
+    /**
+     * @param  string  $id
+     * @param  string  $type
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
+     */
     private function getObject($id, $type)
     {
         $id = \Hashids::decode($id);

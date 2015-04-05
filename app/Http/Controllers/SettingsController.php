@@ -25,7 +25,7 @@ class SettingsController extends BaseController
         $blockedUsers     = $user->blockedUsers();
         $bans             = $user->bannedGroups();
 
-        return view('user.settings', compact(
+        return view('user.settings',compact(
             'user', 'subscribedGroups', 'blockedGroups',
             'moderatedGroups', 'blockedUsers', 'bans'
         ));
